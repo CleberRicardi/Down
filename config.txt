@@ -1,8 +1,0 @@
-##ConfiguraçõesDown
-#Thu Nov 27 09:02:25 BRST 2014
-proxyPass=031011
-proxyHost=proxy.ciss.com.br
-downloadPath=C\:\\Users\\Cleber\\Documents\\Pasta Downloads
-useProxy=true
-proxyUser=cleberricardi
-proxyPort=3128
