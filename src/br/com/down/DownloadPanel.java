@@ -193,12 +193,12 @@ public class DownloadPanel extends javax.swing.JPanel {
         lbIcon = new javax.swing.JLabel();
 
         mOptions.addPopupMenuListener(new javax.swing.event.PopupMenuListener() {
-            public void popupMenuCanceled(javax.swing.event.PopupMenuEvent evt) {
-            }
             public void popupMenuWillBecomeInvisible(javax.swing.event.PopupMenuEvent evt) {
             }
             public void popupMenuWillBecomeVisible(javax.swing.event.PopupMenuEvent evt) {
                 mOptionsPopupMenuWillBecomeVisible(evt);
+            }
+            public void popupMenuCanceled(javax.swing.event.PopupMenuEvent evt) {
             }
         });
 
@@ -328,7 +328,7 @@ public class DownloadPanel extends javax.swing.JPanel {
                             .addComponent(txtFile, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(downProgress, javax.swing.GroupLayout.DEFAULT_SIZE, 428, Short.MAX_VALUE)))
+                        .addComponent(downProgress, javax.swing.GroupLayout.DEFAULT_SIZE, 548, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(

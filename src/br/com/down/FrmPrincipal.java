@@ -111,6 +111,7 @@ public class FrmPrincipal extends FrmAncestor {
         jMenuItem1.setText("jMenuItem1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setMinimumSize(new java.awt.Dimension(571, 193));
         addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 formMouseClicked(evt);
@@ -134,7 +135,7 @@ public class FrmPrincipal extends FrmAncestor {
         internalPane.setLayout(internalPaneLayout);
         internalPaneLayout.setHorizontalGroup(
             internalPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 488, Short.MAX_VALUE)
+            .addGap(0, 574, Short.MAX_VALUE)
         );
         internalPaneLayout.setVerticalGroup(
             internalPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -173,11 +174,13 @@ public class FrmPrincipal extends FrmAncestor {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(scrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 507, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(scrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 576, Short.MAX_VALUE)
+                .addGap(0, 0, 0))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(scrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 395, Short.MAX_VALUE)
+            .addComponent(scrollPane)
         );
 
         pack();
