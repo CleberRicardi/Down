@@ -1,4 +1,0 @@
-#Download em andamento
-#Tue Dec 02 23:31:08 BRST 2014
-URL=http\://c758482.r82.cf2.rackcdn.com/Sublime%20Text%202.0.2%20x64%20Setup.exe
-fileName=Sublime Text 2.0.2 x64 Setup(7).exe
