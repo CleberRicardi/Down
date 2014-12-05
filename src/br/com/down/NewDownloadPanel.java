@@ -21,11 +21,17 @@ public class NewDownloadPanel extends javax.swing.JPanel {
     public NewDownloadPanel(FrmPrincipal frame) {
         initComponents();
         this.frame = frame;
+        txtURL.setFocusable(true);
     }
     
-    public void reset(){
-            txtURL.setText("Insira a URL do download..");
-            txtURL.setForeground(Color.gray);
+    public void setEditing(boolean editing){
+           if(editing){
+               txtURL.setText("");
+               txtURL.setForeground(Color.BLACK);
+           }else{
+               txtURL.setText("Insira a URL do download..");
+               txtURL.setForeground(Color.gray);
+           }
     }
 
     /**
@@ -73,7 +79,7 @@ public class NewDownloadPanel extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(txtURL, javax.swing.GroupLayout.DEFAULT_SIZE, 548, Short.MAX_VALUE)
+                .addComponent(txtURL, javax.swing.GroupLayout.DEFAULT_SIZE, 547, Short.MAX_VALUE)
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -86,33 +92,51 @@ public class NewDownloadPanel extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void txtURLFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtURLFocusGained
-        if(txtURL.getText().equals("Insira a URL do download..")){
-           txtURL.setText("");
-           txtURL.setForeground(Color.BLACK);
-        }
+        txtURL.setSelectionStart(0);
+        txtURL.setSelectionEnd(0);
     }//GEN-LAST:event_txtURLFocusGained
 
     private void txtURLFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtURLFocusLost
         if(txtURL.getText().equals("")){
-            reset();
-        }
+            setEditing(false);}
     }//GEN-LAST:event_txtURLFocusLost
 
     private void txtURLKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtURLKeyPressed
+
         if(evt.getKeyCode()==10){
             try {
                 if(frame.addDownload(txtURL.getText())){
                     this.setVisible(false);
                 }
-                reset();
+                setEditing(false);
             } catch (Exception ex) {
                 Logger.getLogger(NewDownloadPanel.class.getName()).log(Level.SEVERE, null, ex);
             }
         }else if(evt.getKeyCode()==27){
             this.setVisible(false);
-            reset();
+            setEditing(false);
+        }else if(evt.getKeyCode()==8){
+            long sizeLess;
+            if(txtURL.getSelectedText()==null){
+                sizeLess = txtURL.getText().length() - 1;
+            }else{
+                sizeLess = txtURL.getText().length() - txtURL.getSelectedText().length();
+            }
+            
+            if(txtURL.getText().equals("Insira a URL do download..") || (sizeLess <= 0)){
+                setEditing(false);
+                txtURL.setSelectionStart(0);
+                txtURL.setSelectionEnd(0);
+                evt.consume();
+            }
+                
+            System.out.println(txtURL.getText());
+        }else if(evt.getKeyChar() != '￿' && txtURL.getText().equals("Insira a URL do download..")){
+            setEditing(true);
         }
         
+        
+        System.out.println(evt.getKeyCode());
     }//GEN-LAST:event_txtURLKeyPressed
 
     private void txtURLPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_txtURLPropertyChange
